@@ -9,15 +9,6 @@ let wins = 0;
 let lose = 0;
 let remains = 8;
 let rightCounter = 0;
-// let villain = "";
-
-// for(i = 0; i < villain.length; i++){
-//     if(!lettersInWord.includes(villain.charAt(i))){
-//         if(dubLetter.includes(villain.charAt(i))){
-//             lettersInWord += villain.charAt(i);
-//         }
-//     }
-// }
 
 
  //---------Resets letters-------
@@ -91,6 +82,8 @@ function winLose(){
     if(rightCounter === numBlanks){
         wins++;
         document.querySelector('winCounter').innerHTML = wins;
+        alert('grats');
+        reset();
     }
     else if(remains === 0){
         lose++;
@@ -110,9 +103,6 @@ document.onkeyup = function(event)
 		if(letterGuessed === dubLetter[i] && test === true)
 		{
 			let spliceDword = dubLetter.splice(i,1);
-			//Test / Debug
-			console.log('Double word is = ' + dubLetter[i])
-			console.log('Spliced Word is = ' + spliceDword);
 
 			alreadyGuessed(letterGuessed);
 			winLose();
