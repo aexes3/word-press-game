@@ -1,54 +1,3 @@
-
-
-// //Array of Villains
-// let word = ["gravity", "wave", "stone", "gyro", "star", "napalm", "crystal"];
-//  //Choose random Villains
-// let randNum = Math.floor(Math.random() * word.length);
-// let rightWord = [];
-// let wrongWord = [];
-// let choosenWord = word[randNum];
-// let underScore = [];
-
-
-// let docUnderScore = document.querySelector('underscore');
-// let docRightGuess = document.querySelector('rightGuess');
-// let docWrongGuess = document.querySelector('wrongGuess');
-
-
-
-// //underscorses become length of word
-// let generateUnderscore = () => {
-//     for(let i = 0; i < choosenWord; i++){
-//         underScore.push("_");        
-//     }
-//     return underScore;
-// }
-
-// //get user guess
-// document.addEventListener('keypress', (event) => {
-//     let keyword = String.fromCharCode(event.keyCode);
-//     //if users guess is right
-//     if(choosenWord.indexOf(keyword) > -1) {
-//         //add to right words array
-//         rightWord.push(keyword);
-//         //replace underscore with right letter
-//         underScore[choosenWord.indexOf(keyword)] = keyword;
-//         docUnderScore[0].innerHTML = underScore.join(' ');
-//         docRightGuess[0].innerHTML = RightWord;
-//         //check to see if user word matches guesses
-//         if(underScore.join('') == choosenWord){
-//             alert("GRATS");
-//         }
-//     }
-//     else{
-//         wrongWord.push(keyword);
-//         docWrongGuess[0].innerHTML = wrongWord;
-//         }
-//     });
-
-//   docUnderScore[0].innerHTML = generateUnderscore().join(' ');
-
-
 //-------------Global Variables----------------
 let villains = ["gyro man", "stone man", "star", "crystal", "napalm"];
 let choseWord = "";
@@ -60,13 +9,12 @@ let wins = 0;
 let lose = 0;
 let remains = 8;
 let rightCounter = 0;
-
-// villian = "";
+// let villain = "";
 
 // for(i = 0; i < villain.length; i++){
-//     if(!lettersInWord.includes(villian.charAt(i))){
-//         if(dubLetter.includes(villian.charAt(i))){
-//             lettersInWord += villian.charAt(i);
+//     if(!lettersInWord.includes(villain.charAt(i))){
+//         if(dubLetter.includes(villain.charAt(i))){
+//             lettersInWord += villain.charAt(i);
 //         }
 //     }
 // }
@@ -120,36 +68,53 @@ function startGame () {
         document.querySelector('.loseCounter').innerHTML = lose;
         document.querySelector('.wrongGuess').innerHTML = wrongLetters;
 }
+
 function alreadyGuessed (userKey){
     if (choseWord.indexOf(userKey) > - 1){
         for( let i = 0; i < numBlanks; i++){
             if(lettersInWord[i] === userKey){
                 rightCounter++;
                 correctLetters[i] = userKey;
+                document.querySelector('.underscore').innerHTML = correctLetters.join(' ');
             }
         }
     }
+    else{
+        wrongLetters.push(userKey);
+        remains--;
+        document.querySelector('.numGuesses').innerHTML = remains;
+        document.querySelector('.wrongGuess').innerHTML = wrongLetters;
+    }
 }
 
-
+function winLose(){
+    if(rightCounter === numBlanks){
+        wins++;
+        document.querySelector('winCounter').innerHTML = wins;
+    }
+    else if(remains === 0){
+        lose++;
+        document.querySelector('.loseCounter').innerHTML = lose;
+    }
+}
 
 //----------Start Game clicks----------
 startGame();
 
 document.onkeyup = function(event)
 {
-	// test = true;
-	 var letterGuessed = event.key;
-	for(var i = 0; i < dubLetter.length; i++)
+	test = true;
+	 let letterGuessed = event.key;
+	for(let i = 0; i < dubLetter.length; i++)
 	{	
 		if(letterGuessed === dubLetter[i] && test === true)
 		{
-			var spliceDword = dubLetter.splice(i,1);
+			let spliceDword = dubLetter.splice(i,1);
 			//Test / Debug
 			console.log('Double word is = ' + dubLetter[i])
 			console.log('Spliced Word is = ' + spliceDword);
 
-			compareLetters(letterGuessed);
+			alreadyGuessed(letterGuessed);
 			winLose();
 		}
 	}		
