@@ -57,9 +57,17 @@ function startGame () {
         dubLetter = ['a','b','c','d','e','f','g','h','i','j','k','l','m',
                 'n','o','p','q','r','s','t','u','v','w','x','y','z'];
         
-        for(let i = 0; i < numBlanks; i++)
-	{
-		correctLetters.push('_'); //Shows how many blank letters are on dispaly
+        for(let i = 0; i < numBlanks; i++) {
+           // correctLetters.push('_'); //Shows how many blank letters are on dispaly (Not need with if/else loop)
+
+        if (lettersInWord[i] === " ") {
+            correctLetters.push("&nbsp;"); //creates a blank space between words
+            rightCounter++;  //ignores spaces in words as long as it's in a loop
+            }       
+        else 
+            {
+            correctLetters.push("_"); //Shows how many blank letters are on dispaly
+            }
         document.querySelector('.underscore').innerHTML = correctLetters;
 	}
         document.querySelector('.underscore').innerHTML = correctLetters.join(' ');
