@@ -4,29 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" screen="media" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
     <title>Hangman-Game</title>
 
 </head>
 <body>
-
-    <div>Guesses Left: 
+<div class="container">
+<div class="row high-wrapper1">
+    <div class="col-12 col-sm-6 counter">
+        Guesses:
         <span class="numGuesses"></span>
-    </div>
-
-    <div> Loss Counter:  
+            <br><br>
+        Losses:
         <span class="loseCounter">0</span>
     </div>
-
-    <div>
-			Win Counter: <span class="winCounter">0</span>
-		</div>
-    <div>Guessed Wrong:<br>
+    <div class="col-12 col-sm-6 guesses">
+        Wins:
+        <span class="winCounter">0</span>
+            <br><br>
+        Wrong Keys:
+            <br>
         <span class="wrongGuess"></span>
     </div>
+</div>
 
-    <div>
-			<h2 class="underscore">_ _</h2>
-		</div>
+<div class="container row">
+    <div class="col-12 col-sm-6 wrapper3">
+        <span class="underscore">_ _ _ _ _</span>
+    </div>
+</div>
+    
+<footer>
+    <div class ="container wrapper">Jared B Harris</div>
+</footer>
 </div>
     
 <script type="text/javascript" src="assets/javascript/game.js"></script>

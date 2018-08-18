@@ -1,25 +1,10 @@
-Skip to content
- 
-Search or jump to…
+/*-------------CSS RESET--------------*/
 
-Pull requests
-Issues
-Marketplace
-Explore
- @aexes3 Sign out
-0
-0 0 aexes3/word-press-game
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
-word-press-game/assets/css/style.css
-ea5527d  a day ago
-@aexes3 aexes3 1st save
-     
-70 lines (65 sloc)  1.43 KB
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
-/*restet*/
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -46,13 +31,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-    line-height: 1;
-    background-image: url("../images/megamanbackground.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-color: black;
-
-    
+	line-height: 1;
 }
 ol, ul {
 	list-style: none;
@@ -69,31 +48,58 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/*-------------end reset--------------*/
+
+
 
 /*my CSS*/
 
+/*Global*/
 body{
     color: #fff;
+    background-image: url("../images/megamanbackground.jpg");
+    background-size: 65%;
+    background-repeat: no-repeat;
+    background-color: black;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/*counters*/
+.row .counter{
+    float:left;
+    padding: 25px;
+    font-family: 'Inconsolata', monospace;
+    font-size: 30px;
+}
+.row .guesses{
+    float:right;
+    padding: 25px;
+    font-family: 'Inconsolata', monospace;
+    font-size: 30px;
+}
+/*random words*/
+.container .wrapper3 .underscore{
+    position: absolute;
+    bottom: 5px;
+    left: 25px;
+    text-align: left;
+    font-family: 'Inconsolata', monospace;
+    padding: 15px;
 }
 .underscore{
-    border: 1px solid white;
-    font-size: 75px;
+    font-size: 50px;
     text-align: center;
     margin: 20px auto;
     height: 100px;
     width: 80%;
     color: crimson;
 }
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Press h to open a hovercard with more details.
+/*Footer*/
+footer .wrapper{
+    bottom: 0;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+}

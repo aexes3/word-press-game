@@ -1,6 +1,7 @@
 //-------------Global Variables----------------
 //Array of words
-let villains = ["gyro man", "stone man", "star", "crystal", "napalm"];
+let villains = ["gravity man", "wave man", "stone man", "gyro man", "star man", "charge man", "napalm man", "crystal man", 
+"apache joe", "baby metall", "bombier", "bounder", "camon", "dachone", "foojeen", "graviton","jet bomb", "mizzile", "pukapucker", "rembakun"];
 //This will be the display word
 let choseWord = "";
 //these are the letters to guess on the display
@@ -16,6 +17,9 @@ let wins = 0;
 let lose = 0;
 let remains = 6;
 let rightCounter = 0;
+
+var audio = new Audio('music/mega-man-5.mp3');
+audio.play();
 
 
  //---------Resets letters-------
